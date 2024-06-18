@@ -1,0 +1,1 @@
+npm i electron @techstark/opencv-js desmos fluent-ffmpeg
