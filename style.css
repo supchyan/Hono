@@ -1,0 +1,15 @@
+body {
+    top: 0;
+    left: 0;
+    padding: 0;
+    display: flex;
+}
+#calculator {
+    width: 700px;
+    height: 700px;
+}
+#canvas {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}

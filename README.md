@@ -1,1 +1,1 @@
-npm i electron @techstark/opencv-js desmos fluent-ffmpeg
+npm i electron desmos fluent-ffmpeg tracking @types/tracking
