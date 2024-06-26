@@ -1,3 +1,4 @@
+const videoGrabber = document.getElementById('video-grabber');
 const videoContainer = document.getElementById('video-container');
 window.onload = addListeners;
 
@@ -7,7 +8,7 @@ let oldMouseX = 0, oldMouseY = 0;
 let posX = 0, posY = 0;
 
 function addListeners() {
-    videoContainer.addEventListener('mousedown', mouseDown);
+    videoGrabber.addEventListener('mousedown', mouseDown);
     window.addEventListener('mouseup', mouseUp);
     window.addEventListener('mousemove', mouseMove);
 }
