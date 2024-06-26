@@ -1,7 +1,8 @@
 import { showDot } from './calculator.js'
 import { convertVideo, startTracking } from './capture.js'
 
-// convertVideo('./video.mp4', 'capture.mp4')
+const video = document.getElementById('video');
 
-startTracking(document.getElementById('video'), 'test-table');
+// convertVideo('video.mp4', 'capture.mp4')
+startTracking(video, './assets/videos/capture.mp4', 'test-table');
 showDot('test-dot');

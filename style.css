@@ -5,26 +5,50 @@ body {
     margin: 0;
     overflow: hidden;
     display: flex;
+}
+
+.btn {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-color: #ededed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #d5d5d5;
+    border-radius: 4px;
+    margin: 4px;
+    transition: 250ms;
+}
+
+.btn:hover {
+    background-color: #d5d5d5;
+}
+
+#btn-container {
+    position: absolute;
+    right: 0;
+    bottom: 6vh;
+}
+
+#calculator {
+    width: 100vw;
     height: 100vh;
 }
-#calculator {
-    width: 80vw;
-}
+
 #canvas {
     position: absolute;
     opacity: 0;
     z-index: -1;
 }
-#video  {
-    background-color: black;
-    width: 20vw;
-    height: 30vh;
-    object-fit: scale-down;
+
+#video-container {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
-#container_bottom {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 20vw;
-    height: 70vh;
+#video {
+    width: 100%;
+    height: 100%;
 }

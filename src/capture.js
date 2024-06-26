@@ -1,7 +1,8 @@
+const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
 const ffmpeg = require('fluent-ffmpeg');
-const tracking = require('tracking/build/tracking')
+ffmpeg.setFfmpegPath(ffmpegPath);
+const tracking = require('tracking/build/tracking');
 import { generateTable, deleteExpression } from './calculator.js'
-
 
 tracking.ColorTracker.registerColor('red', (r, g, b) => {
     return r > 100 && g < 50 && b < 50
@@ -26,7 +27,7 @@ function convertVideo(srcPath, convertedPath) {
     return ffmpeg(srcPath)
         .FPS(24)
         .noAudio()
-        .videoCodec('libopenh264')
+        .videoCodec('libx264') // libopenh264
         .size('640x?').aspect('1:1').autopad(true)
         .on('end', () => {
             alert('done');
@@ -34,8 +35,8 @@ function convertVideo(srcPath, convertedPath) {
         .save(convertedPath)
 }
 
-function startTracking(video, tableId) {
-    video.setAttribute('src','./capture.mp4')
+function startTracking(video, videoSrc, tableId) {
+    video.setAttribute('src', videoSrc)
     function drawCanvas() {
         ctx.drawImage(video, 0, 0, 640, 640);   
         requestAnimationFrame(drawCanvas);
