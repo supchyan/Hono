@@ -1,6 +1,6 @@
 const ffmpeg = require('fluent-ffmpeg');
 const tracking = require('tracking/build/tracking')
-import { generateTable, remExpression } from './calculator.js'
+import { generateTable, deleteExpression } from './calculator.js'
 
 
 tracking.ColorTracker.registerColor('red', (r, g, b) => {
@@ -22,11 +22,8 @@ const data = {
 };
 
 
-let storedTime;
-
-
-function convertVideo(videoSrc) {
-    return ffmpeg(videoSrc)
+function convertVideo(srcPath, convertedPath) {
+    return ffmpeg(srcPath)
         .FPS(24)
         .noAudio()
         .videoCodec('libopenh264')
@@ -34,10 +31,11 @@ function convertVideo(videoSrc) {
         .on('end', () => {
             alert('done');
         })
-        .save('./converted.mp4')
+        .save(convertedPath)
 }
 
-function startTracking(video) {
+function startTracking(video, tableId) {
+    video.setAttribute('src','./capture.mp4')
     function drawCanvas() {
         ctx.drawImage(video, 0, 0, 640, 640);   
         requestAnimationFrame(drawCanvas);
@@ -51,24 +49,17 @@ function startTracking(video) {
         if (event.data.length === 0) {
             // не нашел цвет нужный
         } else {
-            storedTime = video.currentTime;
-
-            if(video.paused) {
-                if(storedTime != video.currentTime) { 
-                    remExpression('test-table');
-                }
-                return;
-            }
-
             event.data.forEach(function(rect) {
                 coords.x = rect.x;
                 coords.y = -rect.y;
+
+                if(video.paused) return;
 
                 data.x.push(rect.x); 
                 data.y.push(rect.y);
                 data.t.push(video.currentTime);
 
-                generateTable('test-table', data.x, data.y, data.t);
+                generateTable(tableId, data.x, data.y, data.t);
             });
         }
     });
@@ -78,6 +69,12 @@ function startTracking(video) {
     }, 1)
 }
 
+function clearTableCache(tableId) {
+    deleteExpression(tableId);
+    coords.x = coords.y = 0;
+    data.x = data.y = data.t = [];
+}
+
 export {
-    data, coords, startTracking, convertVideo
+    data, coords, startTracking, convertVideo, clearTableCache
 }

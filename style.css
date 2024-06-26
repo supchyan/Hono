@@ -2,14 +2,29 @@ body {
     top: 0;
     left: 0;
     padding: 0;
+    margin: 0;
+    overflow: hidden;
     display: flex;
+    height: 100vh;
 }
 #calculator {
-    width: 700px;
-    height: 700px;
+    width: 80vw;
 }
 #canvas {
     position: absolute;
     opacity: 0;
     z-index: -1;
+}
+#video  {
+    background-color: black;
+    width: 20vw;
+    height: 30vh;
+    object-fit: scale-down;
+}
+#container_bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20vw;
+    height: 70vh;
 }

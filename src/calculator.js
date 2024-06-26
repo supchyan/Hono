@@ -2,7 +2,12 @@ const Desmos = require('desmos')
 import { coords } from './capture.js'
 
 const calculator = Desmos.GraphingCalculator(document.getElementById('calculator'), { autosize: true })
-
+calculator.setMathBounds({
+    left: 0,
+    right: 1,
+    bottom: -1,
+    top: 0
+});
 /**
  * Sets or changes an math expression.
  * @param id - Your table ID
@@ -32,7 +37,7 @@ function generateTable(id, x, y, t) {
         ]
     });
 }
-function remExpression(id) {
+function deleteExpression(id) {
     calculator.removeExpression({ id: id });
 }
 
@@ -40,13 +45,13 @@ function showDot(id) {
     setInterval(() => {
         calculator.setExpression({
             id: id, 
-            latex: `(${coords.x/10},${coords.y/10})`
+            latex: `(${coords.x/640},${coords.y/640})`
         })
     }, 1);
 }
 
 export { 
     generateTable,
-    remExpression,
+    deleteExpression,
     showDot
 }
