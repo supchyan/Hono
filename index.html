@@ -8,19 +8,23 @@
     <body>
         <canvas id="canvas" width="640" height="640"></canvas>
         <div id="video-container">
-            <div id="video-grabber"><div id="grabber-line"></div></div>
+            <div id="video-grabber"><div id="video-grabber-line"></div></div>
             <video id="video" preload muted controls></video>
+            <div id="video-resizer"></div>
         </div>
         <div id="calculator"></div> 
         <div id="btn-container">
-            <button class="btn"><image src="./assets/icons/movie.svg"></image></button>
-            <button class="btn"><image src="./assets/icons/repeat.svg"></image></button>
-            <button class="btn"><image src="./assets/icons/calendar-grid.svg"></image></button>
-            <button class="btn"><image src="./assets/icons/gps.svg"></image></button>
-            <button class="btn"><image src="./assets/icons/trash-alt.svg"></image></button>
+            <button class="btn" id="video-btn"><image src="./assets/icons/movie.svg"></image></button>
+            <button class="btn" id="table-btn"><image src="./assets/icons/calendar-grid.svg"></image></button>
+            <button class="btn" id="dot-btn"><image src="./assets/icons/gps.svg"></image></button>
+            <button class="btn" id="cache-is-trash-btn"><image src="./assets/icons/trash-alt.svg"></image></button>
         </div>
         <div id="test"></div>
     </body>
     <script type="module" src="./src/test.js"></script>
     <script type="module" src="./src/resize.js"></script>
+    <script type="module" src="./src/buttons/videoBtn.js"></script>
+    <script type="module" src="./src/buttons/dotBtn.js"></script>
+    <script type="module" src="./src/buttons/tableBtn.js"></script>
+    <script type="module" src="./src/buttons/cacheIsTrashBtn.js"></script>
 </html>

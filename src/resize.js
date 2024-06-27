@@ -1,5 +1,6 @@
 const videoGrabber = document.getElementById('video-grabber');
 const videoContainer = document.getElementById('video-container');
+const calculator = document.getElementById('calculator');
 window.onload = addListeners;
 
 let mouseX = 0, mouseY = 0;
@@ -17,9 +18,15 @@ function mouseUp(e) {
     window.removeEventListener('mousemove', moveWindow);
     oldPosX = posX;
     oldPosY = posY;
+
+    videoGrabber.style.cursor = 'grab';
+    videoContainer.style.pointerEvents = 'auto';
+    calculator.style.pointerEvents = 'auto';
 }
 
 function mouseDown(e) {
+
+    window.addEventListener('mousemove', moveWindow);
     
     mouseX = e.clientX;
     mouseY = e.clientY;
@@ -27,17 +34,17 @@ function mouseDown(e) {
     oldMouseX = mouseX;
     oldMouseY = mouseY;
 
-    window.addEventListener('mousemove', moveWindow);
+    videoGrabber.style.cursor = 'grabbing';
+    videoContainer.style.pointerEvents = 'none';
+    calculator.style.pointerEvents = 'none';
 }
 
 function moveWindow(e) {
-    var div = videoContainer;
-
     posX = oldPosX + mouseX - oldMouseX;
     posY = oldPosY + mouseY - oldMouseY;
 
-    div.style.left = posX + 'px';
-    div.style.top = posY + 'px';
+    videoContainer.style.marginLeft = posX + 'px';
+    videoContainer.style.marginTop = posY + 'px';
 }
 function mouseMove(e) {
     mouseX = e.clientX;

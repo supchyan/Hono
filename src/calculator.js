@@ -1,5 +1,7 @@
 const Desmos = require('desmos')
 import { coords } from './capture.js'
+import { isDotActive } from './buttons/dotBtn.js';
+import { isTableActive } from './buttons/tableBtn.js';
 
 const calculator = Desmos.GraphingCalculator(document.getElementById('calculator'), { autosize: true })
 calculator.setMathBounds({
@@ -8,11 +10,16 @@ calculator.setMathBounds({
     bottom: -1,
     top: 0
 });
+
 /**
  * Sets or changes an math expression.
  * @param id - Your table ID
  */
-function generateTable(id, x, y, t) {
+function showTable(x, y, t) {
+    const id = 'track-table';
+
+    if(!isTableActive) return deleteExpression(id);
+
     calculator.setExpression({
         type: 'table',
         id: id,
@@ -41,8 +48,10 @@ function deleteExpression(id) {
     calculator.removeExpression({ id: id });
 }
 
-function showDot(id) {
+function showDot() {
+    const id = 'track-dot';
     setInterval(() => {
+        if(!isDotActive) return deleteExpression(id);
         calculator.setExpression({
             id: id, 
             latex: `(${coords.x/640},${coords.y/640})`
@@ -51,7 +60,7 @@ function showDot(id) {
 }
 
 export { 
-    generateTable,
+    showTable,
     deleteExpression,
     showDot
 }

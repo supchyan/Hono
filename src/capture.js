@@ -2,7 +2,7 @@ const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
 const ffmpeg = require('fluent-ffmpeg');
 ffmpeg.setFfmpegPath(ffmpegPath);
 const tracking = require('tracking/build/tracking');
-import { generateTable, deleteExpression } from './calculator.js'
+import { showTable, deleteExpression } from './calculator.js'
 
 tracking.ColorTracker.registerColor('red', (r, g, b) => {
     return r > 100 && g < 50 && b < 50
@@ -22,20 +22,19 @@ const data = {
     t: []
 };
 
-
 function convertVideo(srcPath, convertedPath) {
     return ffmpeg(srcPath)
         .FPS(24)
         .noAudio()
-        .videoCodec('libx264') // libopenh264
-        .size('640x?').aspect('1:1').autopad(true)
+        .videoCodec('libx264') // libopenh264 is better, but its linux only
+        .aspect('1:1').autopad(true) // .size('640x?') should increase performance
         .on('end', () => {
             alert('done');
         })
         .save(convertedPath)
 }
 
-function startTracking(video, videoSrc, tableId) {
+function startTracking(video, videoSrc) {
     video.setAttribute('src', videoSrc)
     function drawCanvas() {
         ctx.drawImage(video, 0, 0, 640, 640);   
@@ -60,7 +59,7 @@ function startTracking(video, videoSrc, tableId) {
                 data.y.push(rect.y);
                 data.t.push(video.currentTime);
 
-                generateTable(tableId, data.x, data.y, data.t);
+                showTable(data.x, data.y, data.t);
             });
         }
     });
@@ -70,12 +69,15 @@ function startTracking(video, videoSrc, tableId) {
     }, 1)
 }
 
-function clearTableCache(tableId) {
-    deleteExpression(tableId);
-    coords.x = coords.y = 0;
-    data.x = data.y = data.t = [];
+function clearCache() {
+    coords.x = 0;
+    coords.y = 0;
+    data.x = [];
+    data.y = [];
+    data.t = [];
+    showTable(data.x, data.y, data.t);
 }
 
 export {
-    data, coords, startTracking, convertVideo, clearTableCache
+    data, coords, startTracking, convertVideo, clearCache
 }
