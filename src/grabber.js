@@ -1,5 +1,5 @@
-const blurable = document.getElementById('blurable');
-const dragProtector = document.getElementById('drag-protector');
+const effects = document.getElementById('effects');
+const blankWall = document.getElementById('blank-wall');
 
 // Make the DIV element draggable:
 dragElement(document.getElementById("video-container"));
@@ -24,8 +24,8 @@ function dragElement(elmnt) {
         // call a function whenever the cursor moves:
         document.onmousemove = elementDrag;
 
-        blurable.style.filter = 'brightness(20%)'
-        dragProtector.style.zIndex = '1';
+        effects.style.filter = 'brightness(20%)'
+        blankWall.style.zIndex = '1';
     }
 
     function elementDrag(e) {
@@ -46,7 +46,7 @@ function dragElement(elmnt) {
         document.onmouseup = null;
         document.onmousemove = null;
 
-        blurable.style.filter = 'brightness(100%)'
-        dragProtector.style.zIndex = '-1';
+        effects.style.filter = 'brightness(100%)'
+        blankWall.style.zIndex = '-1';
     }
 }

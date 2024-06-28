@@ -1,0 +1,47 @@
+body {
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+}
+
+.tooltip {
+    padding: 10px;
+    z-index: 10;
+    position: absolute;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 0 4px #d5d5d5;
+    transition: 150ms;
+}
+
+#calculator {
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+}
+
+#canvas {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+#effects {
+    transition: 300ms;
+}
+
+/* 
+штука, которая не дает взаимодействовать с компонентами,
+пока другие в конкретный момент перетаскиваются пользователем
+*/
+#blank-wall {
+    z-index: -1;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
