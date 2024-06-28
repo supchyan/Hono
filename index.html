@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="./styles/style.css" />
         <link rel="stylesheet" type="text/css" href="./styles/button.css" />
         <link rel="stylesheet" type="text/css" href="./styles/video.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto Slab">
     </head>
     <body>
         <div id="blank-wall"></div>
@@ -13,9 +14,11 @@
         <div id="video-container">
             <div id="video-container-header"><div id="video-grabber-line"></div></div>
             <video id="video" preload muted controls></video>
-            <div id="video-container-navigation">
-                <button class="btn"><image src="./assets/icons/add-box.svg"></image></button>
-                <button class="btn"><image src="./assets/icons/fill-half.svg"></image></button>
+            <div id="video-container-footer">
+                <div id="video-btn-container">
+                    <button class="btn smol-btn" id="swap-video-btn"><image src="./assets/icons/add-box.svg"></image></button>
+                    <button class="btn smol-btn" id="trackable-color-btn"><image src="./assets/icons/fill-half.svg"></image></button>
+                </div>
             </div>
         </div>
         <div id="effects">
