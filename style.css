@@ -30,6 +30,16 @@ body {
     bottom: 6vh;
 }
 
+.tooltip {
+    padding: 10px;
+    z-index: 10;
+    position: absolute;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 0 4px #d5d5d5;
+    transition: 150ms;
+}
+
 #calculator {
     width: 100vw;
     height: 100vh;

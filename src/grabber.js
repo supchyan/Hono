@@ -24,7 +24,7 @@ function dragElement(elmnt) {
         // call a function whenever the cursor moves:
         document.onmousemove = elementDrag;
 
-        blurable.style.filter = 'brightness(10%)'
+        blurable.style.filter = 'brightness(20%)'
         dragProtector.style.zIndex = '1';
     }
 
