@@ -19,7 +19,6 @@ function mouseUp(e) {
     oldPosX = posX;
     oldPosY = posY;
 
-    videoGrabber.style.cursor = 'grab';
     videoContainer.style.pointerEvents = 'auto';
     calculator.style.pointerEvents = 'auto';
 }
