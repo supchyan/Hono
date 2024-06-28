@@ -14,7 +14,7 @@ body {
     background-color: white;
     border-radius: 4px;
     box-shadow: 0 0 4px #d5d5d5;
-    transition: 150ms;
+    transition: scale 150ms, translate 0ms;
 }
 
 #calculator {

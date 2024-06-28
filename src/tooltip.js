@@ -1,8 +1,8 @@
 const offset = 25;
 
 function setPosition(tooltip, e) {
-    tooltip.style.left = e.clientX - tooltip.offsetWidth - offset + 'px';
-    tooltip.style.top = e.clientY - tooltip.offsetHeight / 2 + 'px';
+    tooltip.style.translate = 
+        `${e.clientX - tooltip.offsetWidth - offset}px ${e.clientY - tooltip.offsetHeight / 2 - document.body.offsetHeight}px`;
 }
 
 /**
@@ -15,6 +15,8 @@ function useTooltip(context) {
     const tooltip = document.getElementById(`${context.id}-tooltip`);
     
     context.onmousemove = ((e) => {
+        e = e || window.event;
+        e.preventDefault();
         setPosition(tooltip, e);
     })
     context.onmouseenter = ((e) => {
