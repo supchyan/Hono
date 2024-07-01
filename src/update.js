@@ -18,7 +18,7 @@ setInterval(() => {
         if(wsOpacity <= 0)
             document.body.removeChild(welcomeScreen)
 
-        wsOpacity-=0.01;
+        wsOpacity -= 0.01;
         welcomeScreen.style.opacity = `${wsOpacity}`;
     }
 }, 10)
