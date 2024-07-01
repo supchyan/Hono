@@ -2,12 +2,17 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="./styles/welcome.css" />
         <link rel="stylesheet" type="text/css" href="./styles/style.css" />
         <link rel="stylesheet" type="text/css" href="./styles/button.css" />
         <link rel="stylesheet" type="text/css" href="./styles/video.css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pixelify Sans">
     </head>
     <body>
+        <div id="welcome-screen">
+            <button id="welcome-screen-btn"><image id="welcome-screen-logo" src="./assets/logo-welcome.svg"></image></button>
+            <span class="welcome-screen-h2">Just click!</span>
+        </div>
         <div id="blank-wall"></div>
         <canvas id="canvas" width="640px" height="640px"></canvas>
         <div id="video-container">
@@ -44,7 +49,7 @@
         </div>
         
     </body>
-    <script type="module" src="./src/test.js"></script>
+    <script type="module" src="./src/update.js"></script>
     <script type="module" src="./src/grabber.js"></script>
     <script type="module" src="./src/buttons/videoBtn.js"></script>
     <script type="module" src="./src/buttons/dotBtn.js"></script>
@@ -52,4 +57,5 @@
     <script type="module" src="./src/buttons/clearCacheBtn.js"></script>
     <script type="module" src="./src/buttons/setVideoBtn.js"></script>
     <script type="module" src="./src/buttons/setColorBtn.js"></script>
+    <script type="module" src="./src/buttons/welcomeBtn.js"></script>
 </html>

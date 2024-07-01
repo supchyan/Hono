@@ -3,12 +3,18 @@ import { coords, dotColor } from './capture.js'
 import { isDotActive } from './buttons/dotBtn.js';
 import { isTableActive } from './buttons/tableBtn.js';
 
-const calculator = Desmos.GraphingCalculator(document.getElementById('calculator'), { autosize: true })
+const calculator = Desmos.GraphingCalculator(document.getElementById('calculator'), 
+{ 
+    autosize: true,
+    zoomButtons: false,
+    border: false,
+    keypad: false
+})
 calculator.setMathBounds({
     left: 0,
     right: 1,
     bottom: -1,
-    top: 0
+    top: 0,
 });
 
 /**

@@ -1,7 +1,8 @@
 .btn {
+    box-sizing: border-box;
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     background-color: #ededed;
     display: flex;
     align-items: center;
@@ -22,7 +23,7 @@
 #btn-container {
     position: absolute;
     right: 0;
-    bottom: 6vh;
+    top: 42px;
 }
 
 #set-video-btn-container {

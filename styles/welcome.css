@@ -1,0 +1,40 @@
+#welcome-screen {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+}
+.welcome-screen-h1 {
+    font-size: 24px;
+}
+.welcome-screen-h2 {
+    font-size: 16px;
+    pointer-events: none;
+}
+#welcome-screen-logo {
+    width: auto;
+    height: 20px;
+}
+#welcome-screen-btn {
+    cursor: pointer;
+    transition: 300ms;
+    filter:grayscale();
+    border: none;
+    background-color: transparent;
+}
+#welcome-screen-btn:hover {
+    filter:none;
+    scale: 1.2;
+}
+#welcome-screen-btn:active {
+    scale: 0.8;
+}
