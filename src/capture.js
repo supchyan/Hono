@@ -44,7 +44,7 @@ const data = {
 function convertVideo(srcPath, convertedPath) {
     return ffmpeg(srcPath)
         .noAudio()
-        .videoCodec('libx264') // libopenh264 is better, but its linux only
+        .videoCodec('libx264')
         .size('640x?').aspect('1:1').autopad(true) // .size('640x?') should increase performance
         .on('end', () => {
             console.log('Video converted and added.')
