@@ -18,6 +18,7 @@ tracking.ColorTracker.registerColor('blue', (r, g, b) => {
 });
 let colTracker = new tracking.ColorTracker();
 function setColor(R,G,B) {
+    // return colTracker.setColors(['red'])
     if(R > G && R > B)
         return colTracker.setColors(['red'])
 
@@ -56,7 +57,7 @@ function convertVideo(srcPath, convertedPath) {
 function startTracking(video, videoSrc) {
     video.setAttribute('src', videoSrc)
     function drawCanvas() {
-        ctx.drawImage(video, 0, 0, 680, 680);  
+        ctx.drawImage(video, 0, 0, 640, 640);  
         requestAnimationFrame(drawCanvas);
     }
     
@@ -85,7 +86,7 @@ function startTracking(video, videoSrc) {
     
     setInterval(() => {
         tracking.track('#canvas', colTracker);
-    }, 1)
+    }, 10)
 }
 
 function clearCache() {
