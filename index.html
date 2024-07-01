@@ -10,14 +10,22 @@
     </head>
     <body>
         <div id="blank-wall"></div>
-        <canvas id="canvas" width="640" height="640"></canvas>
+        <canvas id="canvas" width="680px" height="680px"></canvas>
         <div id="video-container">
             <div id="video-container-header"><div id="video-grabber-line"></div></div>
             <video id="video" preload muted controls></video>
             <div id="video-container-footer">
                 <div id="video-btn-container">
-                    <button class="btn smol-btn" id="swap-video-btn"><image src="./assets/icons/add-box.svg"></image></button>
-                    <button class="btn smol-btn" id="trackable-color-btn"><image src="./assets/icons/fill-half.svg"></image></button>
+                    <!-- <image src="./assets/icons/add-box.svg"></image> -->
+                    <!-- <image src="./assets/icons/fill-half.svg"></image> -->
+                    <div id="set-video-btn-container">
+                        <label class="btn" for="set-video-btn" id="set-video-btn-label">
+                            <image src="./assets/icons/paperclip.svg"></image>
+                            <span id="set-video-btn-title">Set video</span>
+                        </label>
+                        <input type="file" accept="video/*" id="set-video-btn"></input>
+                    </div>
+                    <input class="btn" type="color" id="set-color-btn"></input>
                 </div>
             </div>
         </div>
@@ -42,4 +50,6 @@
     <script type="module" src="./src/buttons/dotBtn.js"></script>
     <script type="module" src="./src/buttons/tableBtn.js"></script>
     <script type="module" src="./src/buttons/clearCacheBtn.js"></script>
+    <script type="module" src="./src/buttons/setVideoBtn.js"></script>
+    <script type="module" src="./src/buttons/setColorBtn.js"></script>
 </html>

@@ -26,7 +26,24 @@
     bottom: 6vh;
 }
 
-.smol-btn {
+#set-video-btn-container {
+    margin: 0;
+    position: relative;
+}
+#set-video-btn-label {
+    box-sizing: border-box;
+    margin: 0;
+    width: 120px;
+    height: 30px;
+}
+#set-video-btn-title {
+    margin: 0;
+    padding: 0 0 0 5px;
+    color: #5f5f5f;
+}
+
+#set-color-btn {
+    padding: 0px 2px;
     width: 30px;
     height: 30px;
 }

@@ -1,13 +1,32 @@
+import { showTable } from './calculator.js';
+
 const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
 const ffmpeg = require('fluent-ffmpeg');
 ffmpeg.setFfmpegPath(ffmpegPath);
 const tracking = require('tracking/build/tracking');
-import { showTable, deleteExpression } from './calculator.js'
+const video = document.getElementById('video');
 
+// sets default color
 tracking.ColorTracker.registerColor('red', (r, g, b) => {
-    return r > 100 && g < 50 && b < 50
+    return r > 100 && g < 50 && b < 50;
 });
-const colors = new tracking.ColorTracker(['red']);
+tracking.ColorTracker.registerColor('green', (r, g, b) => {
+    return r < 50 && g > 100 && b < 50;
+});
+tracking.ColorTracker.registerColor('blue', (r, g, b) => {
+    return r < 50 && g < 50 && b > 100;
+});
+let colTracker = new tracking.ColorTracker();
+function setColor(R,G,B) {
+    if(R > G && R > B)
+        return colTracker.setColors(['red'])
+
+    else if(G > R && G > B)
+        return colTracker.setColors(['green'])
+
+    else if(B > R && B > G)
+        return colTracker.setColors(['blue'])
+}
 
 
 const canvas = document.getElementById('canvas');
@@ -27,9 +46,10 @@ function convertVideo(srcPath, convertedPath) {
         .FPS(24)
         .noAudio()
         .videoCodec('libx264') // libopenh264 is better, but its linux only
-        .aspect('1:1').autopad(true) // .size('640x?') should increase performance
+        .size('640x?').aspect('1:1').autopad(true) // .size('640x?') should increase performance
         .on('end', () => {
             alert('done');
+            startTracking(video, convertedPath);
         })
         .save(convertedPath)
 }
@@ -37,7 +57,7 @@ function convertVideo(srcPath, convertedPath) {
 function startTracking(video, videoSrc) {
     video.setAttribute('src', videoSrc)
     function drawCanvas() {
-        ctx.drawImage(video, 0, 0, 640, 640);   
+        ctx.drawImage(video, 0, 0, 680, 680);  
         requestAnimationFrame(drawCanvas);
     }
     
@@ -45,10 +65,11 @@ function startTracking(video, videoSrc) {
         drawCanvas();
     });
 
-    colors.on('track', function(event) {
+    colTracker.on('track', function(event) {
         if (event.data.length === 0) {
-            // не нашел цвет нужный
+
         } else {
+            console.log(colTracker);
             event.data.forEach(function(rect) {
                 coords.x = rect.x;
                 coords.y = -rect.y;
@@ -65,7 +86,7 @@ function startTracking(video, videoSrc) {
     });
     
     setInterval(() => {
-        tracking.track('#canvas', colors);
+        tracking.track('#canvas', colTracker);
     }, 1)
 }
 
@@ -79,5 +100,10 @@ function clearCache() {
 }
 
 export {
-    data, coords, startTracking, convertVideo, clearCache
+    data, 
+    coords,
+    startTracking,
+    convertVideo,
+    clearCache,
+    setColor
 }
