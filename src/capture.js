@@ -43,12 +43,11 @@ const data = {
 
 function convertVideo(srcPath, convertedPath) {
     return ffmpeg(srcPath)
-        .FPS(24)
         .noAudio()
         .videoCodec('libx264') // libopenh264 is better, but its linux only
         .size('640x?').aspect('1:1').autopad(true) // .size('640x?') should increase performance
         .on('end', () => {
-            alert('done');
+            console.log('Video converted and added.')
             startTracking(video, convertedPath);
         })
         .save(convertedPath)
@@ -69,15 +68,14 @@ function startTracking(video, videoSrc) {
         if (event.data.length === 0) {
 
         } else {
-            console.log(colTracker);
             event.data.forEach(function(rect) {
                 coords.x = rect.x;
                 coords.y = -rect.y;
 
                 if(video.paused) return;
 
-                data.x.push(rect.x); 
-                data.y.push(rect.y);
+                data.x.push(rect.x/640); 
+                data.y.push(-rect.y/640);
                 data.t.push(video.currentTime);
 
                 showTable(data.x, data.y, data.t);
