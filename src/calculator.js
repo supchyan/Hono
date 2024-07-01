@@ -1,5 +1,5 @@
 const Desmos = require('desmos')
-import { coords } from './capture.js'
+import { coords, dotColor } from './capture.js'
 import { isDotActive } from './buttons/dotBtn.js';
 import { isTableActive } from './buttons/tableBtn.js';
 
@@ -16,6 +16,7 @@ calculator.setMathBounds({
  * @param id - Your table ID
  */
 function showTable(x, y, t) {
+    console.log(calculator)
     const id = 'track-table';
 
     if(!isTableActive) return deleteExpression(id);
@@ -54,7 +55,8 @@ function showDot() {
         if(!isDotActive) return deleteExpression(id);
         calculator.setExpression({
             id: id, 
-            latex: `(${coords.x/640},${coords.y/640})`
+            latex: `(${coords.x/640},${coords.y/640})`,
+            color: dotColor
         })
     }, 1);
 }

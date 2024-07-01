@@ -5,14 +5,14 @@ function createWindow () {
         width: 800,
         height: 600,
         autoHideMenuBar: true,
-        title: 'hono',
+        title: 'Hono',
         icon: './icon.ico',
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
         }
     })
-    // win.webContents.openDevTools() opens f12 menu
+    win.webContents.openDevTools() // opens f12 menu
     win.loadFile('./index.html')
 }
 

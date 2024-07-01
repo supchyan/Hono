@@ -1,3 +1,5 @@
+const Desmos = require('desmos');
+
 import { showTable } from './calculator.js';
 
 const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
@@ -6,7 +8,6 @@ ffmpeg.setFfmpegPath(ffmpegPath);
 const tracking = require('tracking/build/tracking');
 const video = document.getElementById('video');
 
-// sets default color
 tracking.ColorTracker.registerColor('red', (r, g, b) => {
     return r > 100 && g < 50 && b < 50;
 });
@@ -16,17 +17,26 @@ tracking.ColorTracker.registerColor('green', (r, g, b) => {
 tracking.ColorTracker.registerColor('blue', (r, g, b) => {
     return r < 50 && g < 50 && b > 100;
 });
+
+let dotColor = Desmos.Colors.BLACK;
+
 let colTracker = new tracking.ColorTracker();
 function setColor(R,G,B) {
     // return colTracker.setColors(['red'])
-    if(R > G && R > B)
+    if(R > G && R > B) {
+        dotColor = Desmos.Colors.RED;
         return colTracker.setColors(['red'])
+    }
 
-    else if(G > R && G > B)
+    else if(G > R && G > B) {
+        dotColor = Desmos.Colors.GREEN;
         return colTracker.setColors(['green'])
+    }
 
-    else if(B > R && B > G)
+    else if(B > R && B > G) {
+        dotColor = Desmos.Colors.BLUE;
         return colTracker.setColors(['blue'])
+    }
 }
 
 
@@ -99,8 +109,9 @@ function clearCache() {
 }
 
 export {
-    data, 
+    data,
     coords,
+    dotColor,
     startTracking,
     convertVideo,
     clearCache,
