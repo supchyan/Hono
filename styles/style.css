@@ -5,7 +5,7 @@ body {
     margin: 0;
     overflow: hidden;
     display: flex;
-    font-family: 'Roboto Slab';
+    font-family: 'Pixelify Sans';
 }
 
 .tooltip {
@@ -55,4 +55,10 @@ input[type="file"] {
     top: 10px;
     left: 8px;
     opacity: 0;
+}
+
+#logo-blank {
+    width: auto;
+    height: 15px;
+    padding: 0 10px;
 }
