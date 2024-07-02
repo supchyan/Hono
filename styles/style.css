@@ -5,18 +5,31 @@ body {
     margin: 0;
     overflow: hidden;
     display: flex;
+    flex-direction: column;
     font-family: 'Pixelify Sans';
+}
+#header {
+    display: flex;
+    background-color: #202020;
+    align-items: center;
+    justify-content: space-between;
+}
+#header-logo {
+    margin: 0 15px;
+    width: auto;
+    height: 16px;
 }
 
 .tooltip {
     padding: 10px;
     z-index: 10;
     position: absolute;
-    background-color: black;
+    background-color: #202020;
     color: white;
     border-radius: 4px;
-    box-shadow: 0 0 4px #d5d5d5;
+    /* box-shadow: 0 0 4px #d5d5d5; */
     transition: scale 150ms, translate 0ms;
+    scale: 0;
 }
 
 #calculator {
@@ -38,8 +51,7 @@ body {
 }
 
 /* 
-штука, которая не дает взаимодействовать с компонентами,
-пока другие в конкретный момент перетаскиваются пользователем
+штука, которая не дает взаимодействовать с компонентами, если необходимо.
 */
 #blank-wall {
     z-index: -1;
@@ -56,10 +68,4 @@ input[type="file"] {
     top: 10px;
     left: 8px;
     opacity: 0;
-}
-
-#logo-blank {
-    width: auto;
-    height: 15px;
-    padding: 0 10px;
 }

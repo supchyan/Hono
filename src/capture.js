@@ -95,7 +95,7 @@ function startTracking(video, videoSrc) {
     
     setInterval(() => {
         tracking.track('#canvas', colTracker);
-    }, 10)
+    }, 1)
 }
 
 function clearCache() {

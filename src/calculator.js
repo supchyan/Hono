@@ -10,9 +10,10 @@ const calculator = Desmos.GraphingCalculator(document.getElementById('calculator
     border: false,
     keypad: false,
     pasteGraphLink: true,
-    degreeMode: true,
+    // degreeMode: true,
     xAxisLabel: 'time',
-    yAxisLabel: 'coords'
+    yAxisLabel: 'coords',
+    images: false
 })
 calculator.setMathBounds({
     left: 0,

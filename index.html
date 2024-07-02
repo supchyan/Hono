@@ -9,12 +9,25 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pixelify Sans">
     </head>
     <body>
+        <!-- abs nodes -->
+        <div class="tooltip" id="save-btn-tooltip">Export to .csv</div>
+        <div class="tooltip" id="video-btn-tooltip">Video settings</div>
+        <div class="tooltip" id="table-btn-tooltip">Show / Hide tracking table</div>
+        <div class="tooltip" id="dot-btn-tooltip">Show / Hide tracking dot</div>
+        <div class="tooltip" id="clear-cache-btn-tooltip">Clear data</div>
+
         <div id="welcome-screen">
             <button id="welcome-screen-btn"><image id="welcome-screen-logo" src="./assets/logo-welcome.svg"></image></button>
             <span class="welcome-screen-h2">2D tracking Desmos addon</span>
         </div>
         <div id="blank-wall"></div>
         <canvas id="canvas" width="640px" height="640px"></canvas>
+        
+        <!-- flex nodes -->
+        <div id="header">
+            <image id="header-logo" src="./assets/logo.svg"></image>
+            <button class="btn dark-btn" id="save-btn"><image src="./assets/icons/save.svg"></image></button>
+        </div>
         <div id="video-container">
             <div id="video-container-header"><div id="video-grabber-line"></div></div>
             <video id="video" preload muted controls></video>
@@ -29,15 +42,10 @@
                     </div>
                     <input class="btn" type="color" id="set-color-btn"></input>
                 </div>
-                <image id="logo-blank" src="./assets/logo-blank.svg"></image>
             </div>
         </div>
         <div id="effects">
             <div id="calculator"></div>
-            <div class="tooltip" id="video-btn-tooltip">Video settings</div>
-            <div class="tooltip" id="table-btn-tooltip">Show / Hide tracking table</div>
-            <div class="tooltip" id="dot-btn-tooltip">Show / Hide tracking dot</div>
-            <div class="tooltip" id="clear-cache-btn-tooltip">Clear data</div>
             <div id="btn-container">
                 <button class="btn" id="video-btn"><image src="./assets/icons/movie.svg"></image></button>
                 <button class="btn" id="table-btn"><image src="./assets/icons/calendar-grid.svg"></image></button>
@@ -49,6 +57,7 @@
     </body>
     <script type="module" src="./src/update.js"></script>
     <script type="module" src="./src/grabber.js"></script>
+    <script type="module" src="./src/buttons/saveBtn.js"></script>
     <script type="module" src="./src/buttons/videoBtn.js"></script>
     <script type="module" src="./src/buttons/dotBtn.js"></script>
     <script type="module" src="./src/buttons/tableBtn.js"></script>
