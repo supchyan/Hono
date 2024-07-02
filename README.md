@@ -3,7 +3,7 @@
 
 ### ☂️Building
 ```
-npm i electron @electron-forge/cli @electron-forge/maker-zipfluent-ffmpeg tracking @types/tracking @ffmpeg-installer/ffmpeg
+npm i electron @electron-forge/cli @electron-forge/maker-zip opn fluent-ffmpeg tracking @types/tracking @ffmpeg-installer/ffmpeg
 ```
 **Важно** добавить экспорт `module.exports = tracking` внизу основного файла в библиотеке `tracking.js` </br>
 Запуск проги через `run` скрипты, потому что у electron'а билды слишком тяжелые, я такие не люблю, но кто хочет, можете собрать прогу конечно в исполняемый файл.. Правда конфиг для билда я прописал только под винду, так что линуксоиды сосат B) </br></br>

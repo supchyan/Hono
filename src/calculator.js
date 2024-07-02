@@ -9,7 +9,7 @@ const calculator = Desmos.GraphingCalculator(document.getElementById('calculator
     zoomButtons: false,
     border: false,
     keypad: false,
-    pasteGraphLink: true,
+    // pasteGraphLink: true,
     // degreeMode: true,
     xAxisLabel: 'time',
     yAxisLabel: 'coords',
@@ -71,7 +71,8 @@ function showDot() {
     }, 1);
 }
 
-export { 
+export {
+    calculator,
     showTable,
     deleteExpression,
     showDot
