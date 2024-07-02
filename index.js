@@ -12,7 +12,7 @@ function createWindow () {
             contextIsolation: false,
         }
     })
-    // win.webContents.openDevTools() // opens f12 menu
+    win.webContents.openDevTools() // opens f12 menu
     win.loadFile('./index.html')
 }
 

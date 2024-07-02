@@ -1,4 +1,4 @@
-const Desmos = require('desmos')
+const Desmos = require('desmosapi')
 import { coords, dotColor } from './capture.js'
 import { isDotActive } from './buttons/dotBtn.js';
 import { isTableActive } from './buttons/tableBtn.js';
@@ -8,7 +8,11 @@ const calculator = Desmos.GraphingCalculator(document.getElementById('calculator
     autosize: true,
     zoomButtons: false,
     border: false,
-    keypad: false
+    keypad: false,
+    pasteGraphLink: true,
+    degreeMode: true,
+    xAxisLabel: 'time',
+    yAxisLabel: 'coords'
 })
 calculator.setMathBounds({
     left: 0,

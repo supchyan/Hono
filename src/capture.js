@@ -1,4 +1,4 @@
-const Desmos = require('desmos');
+const Desmos = require('desmosapi');
 
 import { showTable } from './calculator.js';
 
