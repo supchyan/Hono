@@ -1,0 +1,1 @@
+npm i electron @electron-forge/cli @electron-forge/maker-zip opn fluent-ffmpeg tracking @types/tracking @ffmpeg-installer/ffmpeg; npm update
