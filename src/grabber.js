@@ -1,6 +1,7 @@
 const effects = document.getElementById('effects');
 const blankWall = document.getElementById('blank-wall');
 const header = document.getElementById('video-container-header');
+const headerLine = document.getElementById('video-container-header-line');
 
 // Make the DIV element draggable:
 grabElement(document.getElementById('video-container'));
@@ -29,6 +30,7 @@ function grabElement(elmnt) {
         blankWall.style.backdropFilter = 'blur(4px)';
         blankWall.style.zIndex = '1';
         header.style.cursor = 'grabbing';
+        headerLine.style.backgroundColor = 'var(--light-content)'
     }
 
     function elementGrab(e) {
@@ -53,5 +55,6 @@ function grabElement(elmnt) {
         blankWall.style.backdropFilter = 'blur(0px)';
         blankWall.style.zIndex = '-1';
         header.style.cursor = 'grab';
+        headerLine.style.backgroundColor = 'var(--dark-content)'
     }
 }

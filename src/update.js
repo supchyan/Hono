@@ -2,6 +2,7 @@ import { honoLogged } from "./buttons/welcomeBtn.js";
 
 const vidcon = document.getElementById('video-container');
 const welcomeScreen = document.getElementById('welcome-screen');
+const welcomeScreenBtn = document.getElementById('welcome-screen-btn');
 const blankWall = document.getElementById('blank-wall');
 
 let oldWidth, oldHeight;

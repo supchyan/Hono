@@ -1,3 +1,9 @@
+:root {
+    --dark-content: #333333;
+    --dark-bg: #202020;
+    --light-content: #d5d5d5;
+    --light-bg: #ededed;
+}
 body {
     top: 0;
     left: 0;
@@ -10,7 +16,7 @@ body {
 }
 #header {
     display: flex;
-    background-color: #202020;
+    background-color: var(--dark-bg);
     align-items: center;
     justify-content: space-between;
 }
@@ -24,8 +30,8 @@ body {
     padding: 10px;
     z-index: 10;
     position: absolute;
-    background-color: #202020;
-    color: white;
+    background-color: var(--dark-bg);
+    color: var(--light-content);
     border-radius: 4px;
     /* box-shadow: 0 0 4px #d5d5d5; */
     transition: scale 150ms, translate 0ms;

@@ -27,26 +27,26 @@
         <div id="header">
             <image id="header-logo" src="./assets/logo.svg"></image>
             <div id="btn-container">
-                <button class="btn dark-btn" id="video-btn"><image src="./assets/icons/movie.svg"></image></button>
-                <button class="btn dark-btn" id="table-btn"><image src="./assets/icons/calendar-grid.svg"></image></button>
-                <button class="btn dark-btn" id="dot-btn"><image src="./assets/icons/gps.svg"></image></button>
-                <button class="btn dark-btn" id="clear-cache-btn"><image src="./assets/icons/trash-alt.svg"></image></button>
-                <button class="btn dark-btn" id="save-btn"><image src="./assets/icons/save.svg"></image></button>
+                <button class="btn btn-dark" id="video-btn"><image src="./assets/icons/movie.svg"></image></button>
+                <button class="btn btn-dark" id="table-btn"><image src="./assets/icons/calendar-grid.svg"></image></button>
+                <button class="btn btn-dark" id="dot-btn"><image src="./assets/icons/gps.svg"></image></button>
+                <button class="btn btn-dark" id="save-btn"><image src="./assets/icons/save.svg"></image></button>
             </div>
         </div>
         <div id="video-container">
-            <div id="video-container-header"><div id="video-grabber-line"></div></div>
+            <div id="video-container-header"><div id="video-container-header-line"></div></div>
             <video id="video" preload muted controls></video>
             <div id="video-container-footer">
                 <div id="video-btn-container">
                     <div id="set-video-btn-container">
-                        <label class="btn btn-wide" for="set-video-btn" id="set-video-btn-label">
+                        <label class="btn btn-wide btn-dark" for="set-video-btn" id="set-video-btn-label">
                             <image src="./assets/icons/paperclip.svg"></image>
-                            <span id="set-video-btn-title">Set video</span>
+                            <span id="set-video-btn-text">Set video</span>
                         </label>
                         <input type="file" accept="video/*" id="set-video-btn"></input>
                     </div>
-                    <input class="btn" type="color" id="set-color-btn"></input>
+                    <input class="btn btn-dark" type="color" id="set-color-btn"></input>
+                    <button class="btn btn-dark" id="clear-cache-btn"><image src="./assets/icons/trash-alt.svg"></image></button>
                 </div>
             </div>
         </div>
