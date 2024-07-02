@@ -28,9 +28,7 @@
 }
 
 #btn-container {
-    position: absolute;
-    right: 0;
-    top: 89px;
+    display: flex;
 }
 
 #set-video-btn-container {

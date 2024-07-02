@@ -2,7 +2,7 @@ const offset = 25;
 
 function setPosition(tooltip, e) {
     tooltip.style.translate = 
-        `${e.clientX - tooltip.offsetWidth - offset}px ${e.clientY - tooltip.offsetHeight / 2}px`;
+        `${e.clientX - tooltip.offsetWidth - offset}px ${e.clientY - tooltip.offsetHeight / 4}px`;
 }
 
 /**
