@@ -1,6 +1,4 @@
 node_modules
-bower_components
 seq
 *.mp4
 out
-*.csv

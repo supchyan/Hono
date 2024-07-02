@@ -33,7 +33,6 @@ body {
     background-color: var(--dark-bg);
     color: var(--light-content);
     border-radius: 4px;
-    /* box-shadow: 0 0 4px #d5d5d5; */
     transition: scale 150ms, translate 0ms;
     scale: 0;
 }
@@ -66,12 +65,4 @@ body {
     height: 100vh;
     padding: 0;
     margin: 0;
-}
-
-input[type="file"] {
-    position: absolute;
-    z-index: -1;
-    top: 10px;
-    left: 8px;
-    opacity: 0;
 }

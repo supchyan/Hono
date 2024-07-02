@@ -6,27 +6,45 @@ import { createServer } from '../injections/server.js';
 const opn = require('opn');
 const fs = require('fs');
 
+const savePath = `${__dirname}/saved`
+
 const saveBtn = document.getElementById('save-btn');
 
 saveBtn.onclick = (() => {
-    saveState();
+    // openInDesmos();
+    checkFolder();
+    saveCSV();
+    saveInstance();
 })
 
 useTooltip(saveBtn);
 
+/**
+ * Создает локальный хост, перехватывающий запросы с desmos.com
+ * Должен осуществлять перенос инстанса с приложения в аккаунт desmos'a,
+ * но из-за определенных штук этого не делает. 
+ */
 function openInDesmos() {
     createServer();
     opn('http://localhost:8080/calculator');
-
-    // window.addEventListener('execPageFuncImport', arg => {
-    //     state = arg.detail
-    //     Calc.setState(state);
-    // });
 }
-function saveState() {
-    return fs.writeFileSync('./save.json', JSON.stringify(calculator.getState()));
+/**
+ * Создает папку saved, если такой нет.
+ * В папку потом сохраняются данные об инстансе приложения.
+ */
+function checkFolder() {
+    if (!fs.existsSync(savePath)) fs.mkdirSync(savePath);
 }
-function generateCSV() {
+/**
+ * Генерирует инстанс калькулятора и сохраняет его в saved.
+ */
+function saveInstance() {
+    fs.writeFileSync(`${savePath}/instance.json`, JSON.stringify(calculator.getState()));
+}
+/**
+ * Генерирует csv таблицу и сохраняет ее в saved.
+ */
+function saveCSV() {
     let dataArr = [data.t, data.x, data.y];
     var lineArray = [];
     dataArr.forEach(function (infoArray, index) {
@@ -35,5 +53,5 @@ function generateCSV() {
     });
     var csvContent = lineArray.join("\n");
 
-    fs.writeFileSync('./test.csv',csvContent);
+    fs.writeFileSync(`${savePath}/table.csv`,csvContent);
 }

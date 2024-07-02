@@ -24,8 +24,12 @@
     background-color: var(--dark-bg);
     border: none;
 }
-.btn:hover {
+.btn-dark:hover {
     background-color: var(--dark-content);
+}
+.btn-small {
+    width: 30px;
+    height: 30px;
 }
 .btn-wide:active {
     scale: 0.9;
@@ -36,14 +40,21 @@
     display: flex;
 }
 
+#set-video-btn {
+    position: absolute;
+    z-index: -1;
+    top: 10px;
+    left: 8px;
+    opacity: 0;
+}
 #set-video-btn-container {
     margin: 0;
     position: relative;
 }
 #set-video-btn-label {
     box-sizing: border-box;
-    margin: 0;
-    width: 120px;
+    padding: 0 6px;
+    width: auto;
     height: 30px;
 }
 #set-video-btn-text {
@@ -53,7 +64,6 @@
 }
 
 #set-color-btn {
-    padding: 0px 2px;
     width: 30px;
     height: 30px;
 }
