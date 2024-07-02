@@ -2,3 +2,4 @@ node_modules
 seq
 *.mp4
 out
+package-lock.json
