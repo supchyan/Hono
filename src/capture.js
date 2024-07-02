@@ -1,5 +1,4 @@
-const Desmos = require('desmosapi');
-
+import { __Desmos as Desmos } from '../local_modules/desmos.js';
 import { showTable } from './calculator.js';
 
 const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;

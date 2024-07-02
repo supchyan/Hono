@@ -1,7 +1,7 @@
-const Desmos = require('desmosapi')
 import { coords, dotColor } from './capture.js'
 import { isDotActive } from './buttons/dotBtn.js';
 import { isTableActive } from './buttons/tableBtn.js';
+import { __Desmos as Desmos } from '../local_modules/desmos.js';
 
 const calculator = Desmos.GraphingCalculator(document.getElementById('calculator'), 
 { 
@@ -26,7 +26,6 @@ calculator.setMathBounds({
  * @param id - Your table ID
  */
 function showTable(x, y, t) {
-    console.log(calculator)
     const id = 'track-table';
 
     if(!isTableActive) return deleteExpression(id);
