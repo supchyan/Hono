@@ -12,8 +12,6 @@ const saveBtn = document.getElementById('save-btn');
 
 saveBtn.onclick = (() => {
     // openInDesmos();
-    
-    checkFolder();
 
     saveCSV();
     saveInstance();
@@ -42,6 +40,7 @@ function checkFolder() {
  * Генерирует инстанс калькулятора и сохраняет его в saved.
  */
 function saveInstance() {
+    checkFolder();
     fs.writeFileSync(`${savePath}/instance.json`, JSON.stringify(calculator.getState()));
 }
 /**
@@ -55,10 +54,14 @@ function saveCSV() {
         lineArray.push(index == 0 ? "data:text/csv;charset=utf-8," + line : line);
     });
     var csvContent = lineArray.join("\n");
-
+    
+    checkFolder();
     fs.writeFileSync(`${savePath}/table.csv`,csvContent);
 }
-
+/**
+ * Клонирует трекаемое видео в папку saved
+ */
 function cloneVideo() {
+    checkFolder();
     fs.copyFileSync(`${__dirname}/assets/videos/capture.mp4`,`${__dirname}/saved/video.mp4`);
 }
