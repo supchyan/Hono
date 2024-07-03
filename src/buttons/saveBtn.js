@@ -54,4 +54,5 @@ function saveCSV() {
     var csvContent = lineArray.join("\n");
 
     fs.writeFileSync(`${savePath}/table.csv`,csvContent);
+    fs.copyFileSync(`${__dirname}/assets/videos/capture.mp4`,`${__dirname}/saved/video.mp4`);
 }

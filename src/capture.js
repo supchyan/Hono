@@ -57,7 +57,7 @@ function convertVideo(srcPath, convertedPath) {
         .videoCodec('libx264')
         .size('640x?').aspect('1:1').autopad(true) // .size('640x?') should increase performance
         .on('end', () => {
-            console.log('Video converted and added.')
+            clearCache();
             startTracking(video, convertedPath);
         })
         .save(convertedPath)
