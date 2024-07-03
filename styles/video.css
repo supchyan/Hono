@@ -1,3 +1,6 @@
+:root {
+    --video-content-size: 270px;
+}
 #video-container {
     z-index: 2;
     position: absolute;
@@ -41,7 +44,18 @@
     justify-content: space-between;
     padding: 10px;
 }
+#video-ruler-wall {
+    width: var(--video-content-size);
+    height: var(--video-content-size);
+    position: absolute;
+    z-index: -1;
+    backdrop-filter: grayscale();
+}
+#video-container-content {
+    height: var(--video-content-size);
+    width: var(--video-content-size);
+}
 #video {
-    height: 270px;
-    width: 270px;
+    height: var(--video-content-size);
+    width: var(--video-content-size);
 }

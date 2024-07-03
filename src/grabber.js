@@ -26,7 +26,7 @@ function grabElement(elmnt) {
         // call a function whenever the cursor moves:
         document.onmousemove = elementGrab;
 
-        effects.style.filter = 'brightness(20%)';
+        effects.style.filter = 'brightness(20%) grayscale(100%)';
         blankWall.style.backdropFilter = 'blur(4px)';
         blankWall.style.zIndex = '1';
         header.style.cursor = 'grabbing';
@@ -51,7 +51,7 @@ function grabElement(elmnt) {
         document.onmouseup = null;
         document.onmousemove = null;
 
-        effects.style.filter = 'brightness(100%)';
+        effects.style.filter = 'brightness(100%) grayscale(0%)';
         blankWall.style.backdropFilter = 'blur(0px)';
         blankWall.style.zIndex = '-1';
         header.style.cursor = 'grab';

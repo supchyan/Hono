@@ -84,8 +84,9 @@ function startTracking(video, videoSrc) {
 
                 if(video.paused) return;
 
-                data.x.push(rect.x/640); 
-                data.y.push(-rect.y/640);
+                let size = 0.03;
+                data.x.push(rect.x/640 * size); 
+                data.y.push(-rect.y/640 * size);
                 data.t.push(video.currentTime);
 
                 showTable(data.x, data.y, data.t);

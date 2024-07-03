@@ -14,6 +14,7 @@
         <div class="tooltip" id="video-btn-tooltip">Video settings</div>
         <div class="tooltip" id="table-btn-tooltip">Show / Hide tracking table</div>
         <div class="tooltip" id="dot-btn-tooltip">Show / Hide tracking dot</div>
+        <div class="tooltip" id="video-ruler-btn-tooltip">Ruler</div>
         <div class="tooltip" id="clear-cache-btn-tooltip">Clear data</div>
 
         <div id="welcome-screen">
@@ -24,33 +25,38 @@
         <canvas id="canvas" width="640px" height="640px"></canvas>
         
         <!-- flex nodes -->
-        <div id="header">
-            <image id="header-logo" src="./assets/logo.svg"></image>
-            <div id="btn-container">
-                <button class="btn btn-dark" id="video-btn"><image src="./assets/icons/movie.svg"></image></button>
-                <button class="btn btn-dark" id="table-btn"><image src="./assets/icons/calendar-grid.svg"></image></button>
-                <button class="btn btn-dark" id="dot-btn"><image src="./assets/icons/gps.svg"></image></button>
-                <button class="btn btn-dark" id="save-btn"><image src="./assets/icons/save.svg"></image></button>
-            </div>
-        </div>
         <div id="video-container">
             <div id="video-container-header"><div id="video-container-header-line"></div></div>
-            <video id="video" preload muted controls></video>
+            
+            <div id="video-container-content">
+                <div id="video-ruler-wall"></div>
+                <video id="video" preload muted controls></video>
+            </div>
             <div id="video-container-footer">
                 <div id="video-btn-container">
                     <div id="set-video-btn-container">
                         <label class="btn btn-dark btn-wide" for="set-video-btn" id="set-video-btn-label">
-                            <image src="./assets/icons/paperclip.svg"></image>
-                            <span id="set-video-btn-text">Set video</span>
+                            <image src="./assets/icons/attachment.svg"></image>
+                            <span id="set-video-btn-text">Load video</span>
                         </label>
                         <input type="file" accept="video/*" id="set-video-btn"></input>
                     </div>
                     <input class="btn btn-dark" type="color" id="set-color-btn"></input>
+                    <button class="btn btn-dark btn-small" id="video-ruler-btn"><image src="./assets/icons/ruler.svg"></image></button>
                     <button class="btn btn-dark btn-small" id="clear-cache-btn"><image src="./assets/icons/trash-alt.svg"></image></button>
                 </div>
             </div>
         </div>
         <div id="effects">
+            <div id="header">
+                <image id="header-logo" src="./assets/logo.svg"></image>
+                <div id="btn-container">
+                    <button class="btn btn-dark" id="video-btn"><image src="./assets/icons/movie.svg"></image></button>
+                    <button class="btn btn-dark" id="table-btn"><image src="./assets/icons/calendar-grid.svg"></image></button>
+                    <button class="btn btn-dark" id="dot-btn"><image src="./assets/icons/gps.svg"></image></button>
+                    <button class="btn btn-dark" id="save-btn"><image src="./assets/icons/save.svg"></image></button>
+                </div>
+            </div>
             <div id="calculator"></div>
         </div>
         
@@ -61,6 +67,7 @@
     <script type="module" src="./src/buttons/videoBtn.js"></script>
     <script type="module" src="./src/buttons/dotBtn.js"></script>
     <script type="module" src="./src/buttons/tableBtn.js"></script>
+    <script type="module" src="./src/buttons/videoRulerBtn.js"></script>
     <script type="module" src="./src/buttons/clearCacheBtn.js"></script>
     <script type="module" src="./src/buttons/setVideoBtn.js"></script>
     <script type="module" src="./src/buttons/setColorBtn.js"></script>

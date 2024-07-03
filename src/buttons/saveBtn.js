@@ -12,9 +12,12 @@ const saveBtn = document.getElementById('save-btn');
 
 saveBtn.onclick = (() => {
     // openInDesmos();
+    
     checkFolder();
+
     saveCSV();
     saveInstance();
+    cloneVideo();
 })
 
 useTooltip(saveBtn);
@@ -54,5 +57,8 @@ function saveCSV() {
     var csvContent = lineArray.join("\n");
 
     fs.writeFileSync(`${savePath}/table.csv`,csvContent);
+}
+
+function cloneVideo() {
     fs.copyFileSync(`${__dirname}/assets/videos/capture.mp4`,`${__dirname}/saved/video.mp4`);
 }
