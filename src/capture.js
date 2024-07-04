@@ -40,7 +40,10 @@ function setColor(R,G,B) {
 
 
 const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d',{willReadFrequently: true});
+const ctx = canvas.getContext('2d', {
+    willReadFrequently: true,
+    alpha: false,
+});
 const coords = {
     x: 0,
     y: 0
@@ -94,8 +97,12 @@ function startTracking(video, videoSrc) {
         }
     });
     
+    // TODO: лагает сильно
     setInterval(() => {
-        tracking.track('#canvas', colTracker);
+        tracking.track('#canvas', colTracker, {
+            audio: false,
+            camera: false,
+        });
     }, 1)
 }
 
