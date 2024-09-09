@@ -9,7 +9,7 @@
 ```
 </br>
 
-> [!IMPORTANT]  
+> [!NOTE]  
 > Discord для обратной связи → [supchyan's room](https://discord.gg/dGF8p9UGyM)
 
 ### 🌂Скриншоты
