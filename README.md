@@ -9,9 +9,6 @@
 ```
 </br>
 
-> [!NOTE]  
-> **Discord для обратной связи →** [supchyan's room](https://discord.gg/dGF8p9UGyM)
-
 ### 🌂Скриншоты
 ![image](https://github.com/supchyan/Hono/assets/123704468/22f59753-7de8-4c75-b225-01c9f4606298)
 </br></br>
